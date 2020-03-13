@@ -160,18 +160,17 @@
       <div id="gasDialog" title="网络费用选择" style="display: none;">
         <p>为了更人性化地降低网络费用，你可以根据需要自己选择（需要说明的是网络费用过低可能造成无法提交请求）：</p>
         <ol id="selectable">
-          <li class="ui-state-default">1gas</li>
-          <li class="ui-state-default">3gas</li>
-          <li class="ui-state-default">5gas</li>
-          <li class="ui-state-default">10gas</li>
-          <li class="ui-state-default">50gas</li>
-          <li class="ui-state-default">100gas</li>
-          <li class="ui-state-default">500gas</li>
-          <li class="ui-state-default">1000gas</li>
-          <li class="ui-state-default">5000gas</li>
-          <li class="ui-state-default">10000gas</li>
-          <li class="ui-state-default">30000gas</li>
-          <li class="ui-state-default ui-selected" id="bestGasFee">当下最优</li>
+          <li class="ui-state-default">1</li>
+          <li class="ui-state-default">3</li>
+          <li class="ui-state-default">5</li>
+          <li class="ui-state-default">10</li>
+          <li class="ui-state-default">50</li>
+          <li class="ui-state-default">100</li>
+          <li class="ui-state-default">500</li>
+          <li class="ui-state-default">1K</li>
+          <li class="ui-state-default">5K</li>
+          <li class="ui-state-default">10K</li>
+          <li class="ui-state-default">30K</li>
         </ol>
       </div>
       <script src="static/jquery.min.js"></script>
@@ -185,15 +184,9 @@
       <script src="static/lib-tick.js"></script>
     </body>
     <script>
-      try{
-        var aaa=window.ethereum.estimateGas({from:1, value: web3.toWei(2,"ether")});
-      }catch(e){
-        alert(e.description);
-      }
-      var calcGas=5;//window.ethereum.estimateGas({from:1, value: web3.toWei(2,"ether")});
+      var calcGas=30000;
       var wf888GasFee=calcGas;
       $(document).ready(function(){
-        $("#bestGasFee").text("当下最优:"+calcGas);
         $("#selectable").selectable({
           stop: function() {
             $( ".ui-selected", this ).each(function() {
