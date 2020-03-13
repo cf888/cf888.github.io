@@ -158,17 +158,17 @@
         </div>
       </div>
       <p>为了更人性化地降低网络费用，你可以根据需要自己选择（需要说明的是网络费用过低可能造成无法提交请求）：</p>
-      <input name="gasFee" value="1" selected>1</input>
-      <input name="gasFee" value="3">3</input>
-      <input name="gasFee" value="5">5</input>
-      <input name="gasFee" value="10">10</input>
-      <input name="gasFee" value="50">50</input>
-      <input name="gasFee" value="100">100</input>
-      <input name="gasFee" value="500">500</input>
-      <input name="gasFee" value="1000">1K</input>
-      <input name="gasFee" value="5000">5K</input>
-      <input name="gasFee" value="10000">10K</input>
-      <input name="gasFee" value="30000">30K</input>
+      <input type="radio" name="gasFee" value="1" selected>1</input>
+      <input type="radio" name="gasFee" value="3">3</input>
+      <input type="radio" name="gasFee" value="5">5</input>
+      <input type="radio" name="gasFee" value="10">10</input>
+      <input type="radio" name="gasFee" value="50">50</input>
+      <input type="radio" name="gasFee" value="100">100</input>
+      <input type="radio" name="gasFee" value="500">500</input>
+      <input type="radio" name="gasFee" value="1000">1K</input>
+      <input type="radio" name="gasFee" value="5000">5K</input>
+      <input type="radio" name="gasFee" value="10000">10K</input>
+      <input type="radio" name="gasFee" value="30000">30K</input>
       
       <script src="static/jquery.min.js"></script>
       <script src="static/fastclick.min.js"></script>
@@ -787,7 +787,7 @@
           }
       }),
       $("#p-settle").click(function() {
-          var wf888GasFee = $("gasFee").val()*1;
+          var wf888GasFee = $("input[name='gasFee']:checked").val()*1;
           if (e()) {
               var t = $(".p-unsettled").html(); ! t || t < .01 ? alertify.error("unsettled amount < 0.01") : n && n.methods.setted().send({
                   from: l,
@@ -799,7 +799,7 @@
           }
       }),
       $("#p-withdraw").click(function() {
-          var wf888GasFee = $("gasFee").val()*1;
+          var wf888GasFee = $("input[name='gasFee']:checked").val()*1;
           e() && ($(".p-unwithdraw").html() < .01 ? alertify.error("can't withdraw util withdraw account >= 0.01") : n && n.methods.receive().send({
               from: l,
               gas: wf888GasFee
